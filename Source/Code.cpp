@@ -10,8 +10,6 @@
 #include <conio.h>
 
 
-#define CLEAR       "\033[H\033[J"
-
 using namespace std;
 
 //Global Variables
@@ -47,7 +45,7 @@ int main()
 void menu(){
     int choice = -1;
     while(choice != 6){
-        cout << CLEAR;
+        system("cls");
         cout<<"Enter your choice 1 - 6:\n"
             <<"1.Start a New Game\n"
             <<"2.Save This Game\n"
@@ -92,7 +90,8 @@ void menu(){
             print_dashboard();
         }
         else{
-            cout << CLEAR << "Good Bye :)\n";
+            system("cls");
+            cout << "Good Bye :)\n";
             exit(0);
         }
     }
@@ -102,7 +101,7 @@ void menu(){
 void print_board(){
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    cout << CLEAR;
+    system("cls");
     for (int j = row-1; j >= 0; j--){
         for (int i = 0; i < col; i++){
             cout <<" ";
@@ -196,7 +195,7 @@ void run_game(){
     if(!loaded_game){
         row = -1;
         while(row == -1){
-            cout << CLEAR;
+            system("cls");
             cout << "Enter no. of rows > 3 and no. of columns > 3\n"
                 <<"(Default 6 x 7): ";
             cin >> row >> col;
@@ -392,7 +391,7 @@ void load(){
     }
     int choice = -1;
     while(choice==-1){
-        cout << CLEAR;
+        system("cls");
         cout << "\tSaved Games:\n";
         for(int i=0; i<saved.size(); i++){
             cout <<i+1<<") "<<get<0>(saved[i])<<" "
